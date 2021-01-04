@@ -1,4 +1,4 @@
-d3.json("../samples.json").then( data=>{
+d3.json("/static/js/samples.json").then( data=>{
     // Appending People ID's to DropDown
     d3.select("#selDataset").selectAll("option").data(data.names).enter().append("option").text(data=>data).attr("value", data=>data);
     //Setting Default
@@ -8,7 +8,7 @@ d3.json("../samples.json").then( data=>{
 
 //Grab new data from drop down and calling BarChart Function to Graph
 optionChanged=(NewDropDownValue)=> {
-    d3.json("../samples.json").then( data=>{
+    d3.json("/static/js/samples.json").then( data=>{
         for(let i=0; i<data.samples.length; i++){
             if(data.samples[i].id === NewDropDownValue){
                 var sample_values = data.samples[i].sample_values;
